@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>SafeBuddy 🛡️</title>
+
+    <link rel="stylesheet" href="Style.css" />
+    <script src="script.js" defer></script>
+  </head>
+
+  <body data-theme="light" data-size="medium">
+    <div class="app">
+      <!-- ================= HEADER ================= -->
+
+      <header class="topbar">
+        <div class="brand" onclick="showScreen('home')">
+          <div class="buddy-logo">
+            <div class="shield-face">
+              <span class="eye left-eye"></span>
+              <span class="eye right-eye"></span>
+              <span class="smile"></span>
+            </div>
+            <span class="logo-star">✨</span>
+          </div>
+
+          <div>
+            <h1>SafeBuddy</h1>
+            <p data-i18n="tagline">Your friendly online safety buddy!</p>
+          </div>
+        </div>
+
+        <div class="top-actions">
+          <div class="points">⭐ <span id="points">0</span></div>
+
+          <button
+            class="sound-toggle"
+            id="soundToggle"
+            type="button"
+            onclick="toggleSound()"
+          >
+            🔊 Sound
+          </button>
+
+          <button class="icon-button" id="settingsButton">⚙️</button>
+        </div>
+      </header>
+
+      <!-- ================= MAIN ================= -->
+
+      <main>
+        <!-- ================= HOME ================= -->
+
+        <section id="home" class="screen active">
+          <div class="hero">
+            <div class="hero-text">
+              <div class="hello-badge">👋 Hi there!</div>
+
+              <h2>
+                Let's make the internet
+                <span>safer & kinder!</span>
+              </h2>
+
+              <p data-i18n="heroText">
+                I'm Buddy! I'll help you understand tricky online situations.
+              </p>
+
+              <div class="hero-buttons">
+                <button class="primary-button" onclick="showScreen('check')">
+                  🛡️ Check Something
+                </button>
+
+                <button class="secondary-button" onclick="showScreen('buddy')">
+                  💬 Talk to Buddy
+                </button>
+              </div>
+            </div>
+
+            <!-- BIG CUTE BUDDY -->
+
+            <div class="big-buddy">
+              <div class="buddy-sparkle sparkle1">✨</div>
+              <div class="buddy-sparkle sparkle2">⭐</div>
+
+              <div class="buddy-body">
+                <div class="buddy-eyes">
+                  <span></span>
+                  <span></span>
+                </div>
+
+                <div class="buddy-mouth">⌣</div>
+
+                <div class="buddy-shield">🛡️</div>
+              </div>
+
+              <div class="buddy-bubble">
+                <span id="buddyHomeMessage"> You're doing great! 🌟 </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- QUICK ACTIONS -->
+
+          <div class="section-heading">
+            <h2>🌈 What would you like to do?</h2>
+
+            <p>Pick an activity!</p>
+          </div>
+
+          <div class="quick-grid">
+            <button class="quick-card pink" onclick="showScreen('check')">
+              <span>🔍</span>
+              <strong>Check a Message</strong>
+              <small>Is it safe?</small>
+            </button>
+
+            <button class="quick-card blue" onclick="showScreen('buddy')">
+              <span>🤖</span>
+              <strong>Ask Buddy</strong>
+              <small>Have a question?</small>
+            </button>
+
+            <button class="quick-card green" onclick="showScreen('learn')">
+              <span>📚</span>
+              <strong>Learn Safety</strong>
+              <small>Learn cool tips!</small>
+            </button>
+
+            <button class="quick-card yellow" onclick="showScreen('play')">
+              <span>🎮</span>
+              <strong>Play & Learn</strong>
+              <small>Take a quiz!</small>
+            </button>
+          </div>
+
+          <!-- ================= ANIMATED VIDEOS ================= -->
+
+          <div class="section-heading video-heading">
+            <h2>🎬 Buddy's Safety Mini-Videos</h2>
+
+            <p>Watch a tiny story and learn a safety trick!</p>
+          </div>
+
+          <div class="video-grid">
+            <!-- VIDEO 1 -->
+
+            <article class="video-card">
+              <div class="video-scene scene-stop" id="video1">
+                <div class="scene-cloud cloud1">☁️</div>
+                <div class="scene-cloud cloud2">☁️</div>
+
+                <div class="scene-phone">📱</div>
+
+                <div class="scene-character">🧒</div>
+
+                <div class="scene-warning">⚠️</div>
+
+                <div class="scene-text">STOP!</div>
+              </div>
+
+              <div class="video-info">
+                <h3>🛑 Stop • Block • Tell</h3>
+
+                <p>
+                  If someone sends something scary or uncomfortable, stop
+                  replying, block them and tell a trusted adult.
+                </p>
+
+                <div class="video-controls">
+                  <button onclick="playVideo('video1')">▶️ Play</button>
+
+                  <button onclick="pauseVideo('video1')">⏸️ Pause</button>
+
+                  <button onclick="replayVideo('video1')">🔄 Replay</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- VIDEO 2 -->
+
+            <article class="video-card">
+              <div class="video-scene scene-scam" id="video2">
+                <div class="scene-gift">🎁</div>
+
+                <div class="scene-coin coin1">🪙</div>
+                <div class="scene-coin coin2">🪙</div>
+
+                <div class="scene-phone">📱</div>
+
+                <div class="scene-warning">⚠️</div>
+
+                <div class="scene-text">TOO GOOD?</div>
+              </div>
+
+              <div class="video-info">
+                <h3>🎁 Spot a Scam</h3>
+
+                <p>
+                  A surprise prize can be exciting, but never give away
+                  passwords, OTPs or money just because someone asks.
+                </p>
+
+                <div class="video-controls">
+                  <button onclick="playVideo('video2')">▶️ Play</button>
+
+                  <button onclick="pauseVideo('video2')">⏸️ Pause</button>
+
+                  <button onclick="replayVideo('video2')">🔄 Replay</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- VIDEO 3 -->
+
+            <article class="video-card">
+              <div class="video-scene scene-privacy" id="video3">
+                <div class="scene-lock">🔒</div>
+
+                <div class="data-bubble data1">📍</div>
+
+                <div class="data-bubble data2">🏠</div>
+
+                <div class="data-bubble data3">📞</div>
+
+                <div class="scene-shield">🛡️</div>
+
+                <div class="scene-text">KEEP IT PRIVATE!</div>
+              </div>
+
+              <div class="video-info">
+                <h3>🔐 Protect Your Privacy</h3>
+
+                <p>
+                  Your address, school, phone number and passwords should stay
+                  private.
+                </p>
+
+                <div class="video-controls">
+                  <button onclick="playVideo('video3')">▶️ Play</button>
+
+                  <button onclick="pauseVideo('video3')">⏸️ Pause</button>
+
+                  <button onclick="replayVideo('video3')">🔄 Replay</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- VIDEO 4 -->
+
+            <article class="video-card">
+              <div class="video-scene scene-stranger" id="video4">
+                <div class="scene-person">🧑</div>
+
+                <div class="scene-chat">💬</div>
+
+                <div class="scene-stop-sign">🛑</div>
+
+                <div class="scene-character">🧒</div>
+
+                <div class="scene-text">TELL AN ADULT</div>
+              </div>
+
+              <div class="video-info">
+                <h3>👋 Stranger Safety</h3>
+
+                <p>
+                  If someone online asks to meet, keep secrets, or asks for
+                  private photos, tell a trusted adult.
+                </p>
+
+                <div class="video-controls">
+                  <button onclick="playVideo('video4')">▶️ Play</button>
+
+                  <button onclick="pauseVideo('video4')">⏸️ Pause</button>
+
+                  <button onclick="replayVideo('video4')">🔄 Replay</button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- DAILY CHALLENGE -->
+
+          <div class="challenge-card">
+            <div class="challenge-icon">🌟</div>
+
+            <div>
+              <h2>Today's Safety Challenge</h2>
+
+              <p id="dailyChallenge">
+                Can you spot one thing you should never share online?
+              </p>
+            </div>
+
+            <button onclick="completeChallenge()">I Did It! 🎉</button>
+          </div>
+        </section>
+
+        <!-- ================= CHECK ================= -->
+
+        <section id="check" class="screen">
+          <div class="page-title">
+            <span>🔍</span>
+
+            <div>
+              <h2>Safety Checker</h2>
+              <p>Paste a message and Buddy will look for warning signs.</p>
+            </div>
+          </div>
+
+          <div class="checker-card">
+            <textarea
+              id="messageInput"
+              placeholder="Example: Someone says I won a free phone and asks for my OTP..."
+            ></textarea>
+
+            <div class="checker-buttons">
+              <button class="primary-button" onclick="analyzeText()">
+                🛡️ Check with Buddy
+              </button>
+
+              <button class="secondary-button" onclick="clearChecker()">
+                🧹 Clear
+              </button>
+            </div>
+          </div>
+
+          <!-- RESULT -->
+
+          <div id="resultBox" class="result-box hidden">
+            <div id="resultMascot" class="result-mascot">🧸</div>
+
+            <div>
+              <h2 id="resultTitle"></h2>
+
+              <p id="resultMessage"></p>
+
+              <div id="dangerWords"></div>
+
+              <h3>💡 What should I do?</h3>
+
+              <ul id="actionList"></ul>
+            </div>
+          </div>
+
+          <!-- LINK CHECKER -->
+
+          <div class="tool-card">
+            <h2>🔗 Link Checker</h2>
+
+            <p>Check a suspicious link without opening it.</p>
+
+            <input
+              id="linkInput"
+              type="text"
+              placeholder="Paste a link here..."
+            />
+
+            <button class="primary-button" onclick="checkLink()">
+              🔎 Check Link
+            </button>
+
+            <div id="linkResult"></div>
+          </div>
+
+          <!-- SCREENSHOT -->
+
+          <div class="tool-card">
+            <h2>📸 Screenshot Helper</h2>
+
+            <p>
+              Upload a screenshot and use the text box below to check what it
+              says.
+            </p>
+
+            <input type="file" id="screenshotInput" accept="image/*" />
+
+            <img
+              id="screenshotPreview"
+              class="screenshot-preview hidden"
+              alt="Screenshot preview"
+            />
+
+            <textarea
+              id="screenshotText"
+              placeholder="Type or paste the important text from the screenshot..."
+            ></textarea>
+
+            <button class="primary-button" onclick="analyzeScreenshotText()">
+              🛡️ Check Screenshot Text
+            </button>
+          </div>
+        </section>
+
+        <!-- ================= BUDDY ================= -->
+
+        <section id="buddy" class="screen">
+          <div class="page-title">
+            <span>🤖</span>
+
+            <div>
+              <h2>Chat with Buddy</h2>
+              <p>You can ask me anything about online safety.</p>
+            </div>
+          </div>
+
+          <div class="chat-card">
+            <div id="chatMessages" class="chat-messages">
+              <div class="chat-message buddy-message">
+                <div class="chat-avatar">🛡️</div>
+
+                <div class="bubble">
+                  Hi! I'm Buddy! 🌟<br />
+                  What's on your mind?
+                </div>
+              </div>
+            </div>
+
+            <div class="chat-input-row">
+              <button
+                class="mic-button"
+                onclick="startVoiceInput()"
+                title="Voice input"
+              >
+                🎤
+              </button>
+
+              <input
+                id="chatInput"
+                type="text"
+                placeholder="Ask Buddy something..."
+                onkeydown="handleChatKey(event)"
+              />
+
+              <button class="send-button" onclick="sendChat()">➤</button>
+            </div>
+
+            <div class="suggestions">
+              <button onclick="askSuggestion('Why is this dangerous?')">
+                🤔 Why is this dangerous?
+              </button>
+
+              <button onclick="askSuggestion('What should I do?')">
+                🛡️ What should I do?
+              </button>
+
+              <button onclick="askSuggestion('Can I trust this person?')">
+                👀 Can I trust this person?
+              </button>
+
+              <button onclick="askSuggestion('I am confused')">
+                😵 I'm confused
+              </button>
+
+              <button onclick="askSuggestion('I do not feel safe')">
+                🆘 I don't feel safe
+              </button>
+            </div>
+          </div>
+
+          <!-- AUDIO CONTROLS -->
+
+          <div class="audio-card">
+            <div class="audio-icon">🔊</div>
+
+            <div>
+              <h3>Listen to Buddy</h3>
+
+              <p>Buddy can read the latest answer aloud.</p>
+              <small id="audioStatus" class="audio-status"
+                >Tap Sound once to enable audio.</small
+              >
+            </div>
+
+            <div class="audio-buttons">
+              <button onclick="readLastAnswer()">🔊 Read</button>
+
+              <button onclick="pauseSpeech()">⏸️ Pause</button>
+
+              <button onclick="replaySpeech()">🔁 Replay</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= LEARN ================= -->
+
+        <section id="learn" class="screen">
+          <div class="page-title">
+            <span>📚</span>
+
+            <div>
+              <h2>Learn Safety</h2>
+              <p>Small lessons for big online adventures!</p>
+            </div>
+          </div>
+
+          <div class="learn-grid">
+            <div class="learn-card">
+              <span>🔐</span>
+              <h3>Passwords</h3>
+              <p>Keep passwords private and difficult to guess.</p>
+            </div>
+
+            <div class="learn-card">
+              <span>🎣</span>
+              <h3>Scams</h3>
+              <p>If something seems too good to be true, stop and check.</p>
+            </div>
+
+            <div class="learn-card">
+              <span>👥</span>
+              <h3>Strangers</h3>
+              <p>Online strangers are still strangers.</p>
+            </div>
+
+            <div class="learn-card">
+              <span>📸</span>
+              <h3>Privacy</h3>
+              <p>Think before sharing photos or personal information.</p>
+            </div>
+
+            <div class="learn-card">
+              <span>💬</span>
+              <h3>Kindness</h3>
+              <p>Be kind online and don't join bullying.</p>
+            </div>
+
+            <div class="learn-card">
+              <span>🚨</span>
+              <h3>Emergency</h3>
+              <p>If you're in danger, get help from a trusted adult.</p>
+            </div>
+          </div>
+
+          <div class="parent-card">
+            <span>👨‍👩‍👧</span>
+
+            <div>
+              <h2>Parent Mode</h2>
+              <p>
+                SafeBuddy is designed to encourage conversations between
+                children and trusted adults.
+              </p>
+            </div>
+
+            <button onclick="showParentInfo()">View Info</button>
+          </div>
+        </section>
+
+        <!-- ================= PLAY ================= -->
+
+        <section id="play" class="screen">
+          <div class="page-title">
+            <span>🎮</span>
+
+            <div>
+              <h2>Play & Learn</h2>
+              <p>Test your safety skills!</p>
+            </div>
+          </div>
+
+          <div class="quiz-card">
+            <div class="quiz-progress">
+              Question <span id="quizNumber">1</span> / 5
+            </div>
+
+            <h2 id="quizQuestion">
+              Someone online asks for your password. What should you do?
+            </h2>
+
+            <div id="quizOptions" class="quiz-options"></div>
+
+            <div id="quizFeedback"></div>
+          </div>
+
+          <div class="badge-card">
+            <h2>🏆 Your Safety Badges</h2>
+
+            <div id="badges">
+              <div class="badge locked">
+                🔒<br />
+                Scam Spotter
+              </div>
+
+              <div class="badge locked">
+                🔒<br />
+                Privacy Pro
+              </div>
+
+              <div class="badge locked">
+                🔒<br />
+                Safety Explorer
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- ================= BOTTOM NAV ================= -->
+
+      <nav class="bottom-nav">
+        <button onclick="showScreen('home')" class="nav-button active-nav">
+          🏠
+          <span>Home</span>
+        </button>
+
+        <button onclick="showScreen('check')" class="nav-button">
+          🔍
+          <span>Check</span>
+        </button>
+
+        <button onclick="showScreen('buddy')" class="nav-button">
+          🤖
+          <span>Buddy</span>
+        </button>
+
+        <button onclick="showScreen('learn')" class="nav-button">
+          📚
+          <span>Learn</span>
+        </button>
+
+        <button onclick="showScreen('play')" class="nav-button">
+          🎮
+          <span>Play</span>
+        </button>
+      </nav>
+
+      <!-- ================= SETTINGS ================= -->
+
+      <div id="settingsModal" class="modal hidden">
+        <div class="modal-box">
+          <button class="modal-close" onclick="closeModal('settingsModal')">
+            ×
+          </button>
+
+          <h2>⚙️ Settings</h2>
+
+          <h3>🎨 Theme</h3>
+
+          <div class="setting-row">
+            <button onclick="setTheme('light')">☀️ Light</button>
+
+            <button onclick="setTheme('dark')">🌙 Dark</button>
+
+            <button onclick="setTheme('kids')">🌈 Kids</button>
+          </div>
+
+          <h3>🔤 Text Size</h3>
+
+          <div class="setting-row">
+            <button onclick="setTextSize('small')">Small</button>
+
+            <button onclick="setTextSize('medium')">Medium</button>
+
+            <button onclick="setTextSize('large')">Large</button>
+          </div>
+
+          <h3>🌍 Language</h3>
+
+          <select id="languageSelect" onchange="changeLanguage(this.value)">
+            <option value="en">🇬🇧 English</option>
+            <option value="hi">🇮🇳 Hindi</option>
+            <option value="mr">🇮🇳 Marathi</option>
+            <option value="fr">🇫🇷 French</option>
+            <option value="zh">🇨🇳 Chinese</option>
+            <option value="ar">🇸🇦 Arabic</option>
+            <option value="ja">🇯🇵 Japanese</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- ================= HELP ================= -->
+
+      <div id="helpModal" class="modal hidden">
+        <div class="modal-box help-box">
+          <button class="modal-close" onclick="closeModal('helpModal')">
+            ×
+          </button>
+
+          <div class="help-icon">🆘</div>
+
+          <h2>You're Not Alone</h2>
+
+          <p>
+            If someone is threatening you, following you, asking for private
+            pictures, or making you feel unsafe:
+          </p>
+
+          <ol>
+            <li>Stop replying.</li>
+            <li>Move somewhere safe.</li>
+            <li>Tell a trusted adult.</li>
+            <li>Block and report the person.</li>
+            <li>
+              If there is immediate danger, contact local emergency services.
+            </li>
+          </ol>
+
+          <button class="primary-button" onclick="closeModal('helpModal')">
+            💚 Got it
+          </button>
+        </div>
+      </div>
+
+      <!-- TOAST -->
+
+      <div id="toast" class="toast">⭐ Great job!</div>
+    </div>
+  </body>
+</html>
